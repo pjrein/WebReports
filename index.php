@@ -28,6 +28,8 @@ and open the template in the editor.
          <form name="maandOmzet" action="maandOmzetInvoer.php" method="POST">
             <input type="submit" value="maandOmzet" name="maandOmzetname" />
         </form>
-        
+        <form name="voorraad" action="voorraadInvoer.php" method="POST">
+            <input type="submit" value="voorraad" name="voorraadname" />
+        </form>
     </body>
 </html>
