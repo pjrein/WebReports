@@ -35,8 +35,7 @@ and open the template in the editor.
         ?>
 
 
-        <?php
-        echo 'hallo vanuit voorraad <br>';
+        <?php        
         $sql = " SELECT
 	locations.NAME as loc, 
 	locations.id as locid,
@@ -50,7 +49,7 @@ left JOIN CATEGORIES ON PRODUCTS.CATEGORY = CATEGORIES.ID
 
 where
  (stockcurrent.LOCATION = 0 or stockcurrent.LOCATION = 2) and
-PRODUCTS.NAME LIKE '%mentos%';";
+PRODUCTS.NAME LIKE '%chocolaat%';";
 
         $con = my_conn();
         $result = mysqli_query($con, $sql);
@@ -58,12 +57,9 @@ PRODUCTS.NAME LIKE '%mentos%';";
 
         <table> 
             <tr> 
-                <td><strong>location</strong></td> 
-                <td><strong>ID</strong></td> 
                 <td><strong>produkt</strong></td>
-                <td><strong>produkt-ID</strong></td>
-                <td><strong>am</strong></td>
                 <td><strong>mi</strong></td>
+                <td><strong>am</strong></td>
                 <td></td>
             </tr>
             <!--</table>-->
@@ -72,32 +68,10 @@ PRODUCTS.NAME LIKE '%mentos%';";
             $i = 0;
             $arResult = array();
             while ($row = mysqli_fetch_assoc($result)) {
-
-//                $tel=0;
-//                $varProdId = $row["productID"];
-//                echo 'varProdId =  ' . $varProdId . "<br>";
-//                if ($varProdId = $row["productID"])
-//                {
-//                    $tel = $tel + 1;
-//                }
-//                echo 'tel = ' . $tel;
-
                 $arResult[$i] = $row;
                 $arResult[$i]['mi'] = '';
                 $arResult[$i]['am'] = '';
                 $i++;
-//                echo("<tr>\n<td>" . $row["loc"] . "</td> ");
-//                echo("<td>" . $row["locid"] . "</td>");
-//                echo("<td>" . $row["product"] . "</td>");
-//                echo("<td>" . $row["productID"] . "</td>");
-//                if ($row["locid"] == 2) {
-//                    echo("<td>" . " ". "</td>");
-//                    echo("<td>" . $row["units"] . "</td>");
-//                }
-//                if ($row["locid"] == 0 ) {
-//                    echo("<td>" . $row["units"] . "</td>");
-//                    echo("<td>" . " " . "</td>");
-//                }
             }
 
 
@@ -105,7 +79,7 @@ PRODUCTS.NAME LIKE '%mentos%';";
 //            print_r($arResult);
 //            echo "<pre>";
             $varProductID = array();
-            $resultaat = array();
+            $resultaat = array(); //hulparray
             $duplicates = array();
             $count = 0;
             for ($j = 0; $j < count($arResult); $j++) {
@@ -113,12 +87,10 @@ PRODUCTS.NAME LIKE '%mentos%';";
                     // $varProductID[$j] = $arResult[$j]['productID'];
                     $varProductID[$j] = $arResult[$j]; //zijn unieke waarden
                     if ($varProductID[$j]['locid'] == 0) {
-                        $varProductID[$j]['mi'] = $varProductID[$j]['units'];
-                        // $count++;
+                        $varProductID[$j]['mi'] = $varProductID[$j]['units'];                      
                     }
                     if ($varProductID[$j]['locid'] == 2) {
-                        $varProductID[$j]['am'] = $varProductID[$j]['units'];
-                        // $count++;
+                        $varProductID[$j]['am'] = $varProductID[$j]['units'];                        
                     }
                 }
                 if (in_array($arResult[$j]['productID'], $resultaat)) {
@@ -127,61 +99,27 @@ PRODUCTS.NAME LIKE '%mentos%';";
                 }
                 $resultaat[$j] = $arResult[$j]['productID'];
             }
+
             $duplicates = array_values($duplicates);
             $varProductID = array_values($varProductID);
-            for ($x = 0; $x < count($duplicates); $x++) {
-                for ($y = 0; $y < count($varProductID); $y++) {
-                    if ($duplicates[$x]['productID'] == $varProductID[$y]['productID'] && $duplicates[$x]['locid'] == 2)
-                        $varProductID[$y]['am'] = $varProductID[$y]['units'];
-//                    if ($duplicates[$x]['productID'] == $varProductID[$y]['productID'] && $duplicates[$x]['locid'] == 0)
-//                        $varProductID[$y]['mi'] = $varProductID[$y]['units'];
-
-
-                    //  c
-                    //       echo 'aantal varProductID  = ' . count($varProductID) . "<br>";
-                    // echo 'dulicates ProductID  = ' . $duplicates[$x]['productID'] . "<br>";
-                    // echo 'varProductID ProductID  = ' . $varProductID[$y]['productID'] . "<br>";
-                }
-            }
-//            echo "<pre>";
-//            print_r($resultaat);
-//            echo "<pre>";
-            echo "<pre>";
-            print_r($duplicates);
-            echo "<pre>";
-
-            echo "<pre>";
-            print_r($varProductID);
-            echo "<pre>";
-            // $varProductID = array_values($varProductID);
-//            echo "<pre>";
-//            print_r($varProductID);
-//            echo "<pre>";
-//            echo "<pre>";
-//            print_r(array_count_values($arResult));
-//            echo "<pre>";
-            echo 'count = ' . count($arResult) . '<br>';
-            echo 'aantal dubbele = ' . $count . '<br>';
-            $j = 0;
-            for ($j = 0; $j < $count; $j++) {
-                for ($x = 0; $x < $i; $x++) {
-                    //for each($arResult)
-                    if (($varProductID[$j] = $arResult[$x]['productID'])) {
-                        //   echo '$varProductID[$j]' . $varProductID[$j] . '     $arResult' . $arResult[$x]['productID'] . "<br>";
-                        echo("<tr>\n<td>" . $arResult[$x]['loc'] . "</td> ");
-                        echo("<td>" . $arResult[$x]['locid'] . "</td>");
-                        echo("<td>" . $arResult[$x]['product'] . "</td>");
-                        echo("<td>" . $arResult[$x]['productID'] . "</td>");
-                        if ($arResult[$x]['locid'] == 2) {
-                            echo("<td>" . " " . "</td>");
-                            echo("<td>" . $arResult[$x]['units'] . "</td>");
+           // echo 'aantal varproductid' . count($varProductID);
+            for ($i = 0; $i < count($varProductID); $i++) {
+                foreach ($duplicates as $dub) {
+                    if ($dub['productID'] == $varProductID[$i]['productID']) {
+                        if ($dub['locid'] == 0) {
+                            $varProductID[$i]['mi'] = $dub['units'];
                         }
-                        if ($arResult[$x]['locid'] == 0) {
-                            echo("<td>" . $arResult[$x]['units'] . "</td>");
-                            echo("<td>" . " " . "</td>");
+                        if ($dub['locid'] == 2) {
+                            $varProductID[$i]['am'] = $dub['units'];
                         }
                     }
                 }
+            }
+
+            foreach($varProductID as $uniek) {
+                echo("<tr>\n<td>" . $uniek['product'] . "</td> ");
+                echo("<td>" . $uniek['mi'] . "</td>");
+                echo("<td>" . $uniek['am'] . "</td>");
             }
             ?>
 
