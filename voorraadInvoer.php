@@ -11,12 +11,14 @@ and open the template in the editor.
         <title>reports</title>
     </head>
     <body>
-         <div id="header">
+        <div id="header">
             <img src="css/milimix.png" alt="milimix" width="50" height="50"><br>
+
             reports menu
         </div>
         <?php
 //        echo 'voorraadInvoer';
+// categorie opgeven zodat per categorie kan worden gekeken
         ?>
         <form name="voorraadInvoer" action="voorraad.php" method="POST">
 <!--                geef de begindatum JJJJ-MM-DD HH:MM:SS : <input type="text" name="begindatum" value="2016- 00:00:00" /><br>

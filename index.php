@@ -16,8 +16,7 @@ and open the template in the editor.
             reports menu
         </div>
         <?php
-       // echo 'hallo keuzemenu';
-        
+        // echo 'hallo keuzemenu';
         ?>
         <form name = "salesProfit" action = "salesProfitInvoer.php" method = "POST">                 
             <input type="submit" value="salesProfit" name="salesProfitNAME" />
@@ -25,7 +24,7 @@ and open the template in the editor.
         <form name="productSales" action="productSalesExtendedInvoer.php" method="POST">
             <input type="submit" value="productSales" name="productSalesname" />
         </form>
-         <form name="maandOmzet" action="maandOmzetInvoer.php" method="POST">
+        <form name="maandOmzet" action="maandOmzetInvoer.php" method="POST">
             <input type="submit" value="maandOmzet" name="maandOmzetname" />
         </form>
         <form name="voorraad" action="voorraadInvoer.php" method="POST">

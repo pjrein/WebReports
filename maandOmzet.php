@@ -60,7 +60,7 @@
 
         </table> 
 
-        
+
         <form name="hoofdmenu" action="maandOmzetInvoer.php" method="POST">
             <input type="submit" value="maandOmzetInvoer" />
         </form>

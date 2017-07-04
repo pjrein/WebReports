@@ -9,6 +9,7 @@
             <word>Jaar</word>
             <word>Maand</word>
             <word>maandOmzet</word>
+            <word>reasen</word>
         </spellchecker-wordlist>
     </configuration>
 </project>

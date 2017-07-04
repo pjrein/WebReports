@@ -11,7 +11,7 @@ and open the template in the editor.
         <title>reports</title>
     </head>
     <body>
-         <div id="header">
+        <div id="header">
             <img src="css/milimix.png" alt="milimix" width="50" height="50"><br>
             reports menu
         </div>
@@ -19,8 +19,8 @@ and open the template in the editor.
         // put your code here
         ?>
         <form name="salesProfitInvoer" action="productSalesExtended.php" method="POST">
-                geef de begindatum JJJJ-MM-DD HH:MM:SS : <input type="text" name="begindatum" value="2016- 00:00:00" /><br>
-            geef de einddatum JJJJ-MM-DD HH:MM:SS  : <input type="text" name="einddatum" value="2016- 24:00:00" /><br>
+            geef de begindatum JJJJ-MM-DD HH:MM:SS : <input type="text" name="begindatum" value="2017- 00:00:00" /><br>
+            geef de einddatum JJJJ-MM-DD HH:MM:SS  : <input type="text" name="einddatum" value="2017- 24:00:00" /><br>
             <input type="submit" name="productSalesExtendedName" value="productSalesExtendedInvoer" />
         </form>
     </body>

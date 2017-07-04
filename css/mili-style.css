@@ -36,7 +36,7 @@ div.container {
 }
 div.left {
     float: left;
-    width : 200px;
+    width : 100;
     border: solid black 1px;
     margin: 0px;
 }
@@ -47,7 +47,7 @@ div.mid {
     margin: 0px;
 }
 div.right {
-    
+
     width : 400px;
     border: #ffffff;
     margin: 0px;
