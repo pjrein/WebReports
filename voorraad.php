@@ -45,12 +45,12 @@ and open the template in the editor.
 //                    $i++;
 //                }
 //                $stloc = "where ((" . implode(" OR ", $loc) . ") and ";
-                $reason = $_POST['reason'];
+               // $reason = $_POST['reason'];
                 
 //                 echo "<pre>";
 //            print_r($reason);
 //            echo "<pre>";
-                echo $reason;
+               // echo $reason;
                $i = 0;
                 foreach ($_POST['categorie'] as $categorie) {
                     $cat[] = "categories.NAME = '" . $categorie . "'";
@@ -100,7 +100,7 @@ and open the template in the editor.
                             ?>
                         </select><br><br>
                     </div>
-                    <div class="mid">
+<!--                    <div class="mid">
                         selecteer reason: <br><select name="reason" size="12"  >
                             <?php
                             print " <option selected value=\" \"></option> ";
@@ -122,7 +122,7 @@ and open the template in the editor.
                            // }
                             ?>
                         </select><br><br>
-                    </div>
+                    </div>-->
                     <div class="bottom">
                         <input type="submit" name="submit" value="selectie"/>
                     </div>
