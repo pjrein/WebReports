@@ -14,7 +14,7 @@ and open the template in the editor.
         <div id="header">
             <img src="css/milimix.png" alt="milimix" width="50" height="50"><br>
 
-            reports menu
+            sales profit
         </div>
         <?php
         // put your code here

@@ -33,5 +33,8 @@ and open the template in the editor.
         <form name="diary" action="diary.php" method="POST">
             <input type="submit" value="diary" name="diarynakename" />
         </form>
+        <form name="salesWithStock" action="sales with stock.php" method="POST">
+            <input type="submit" value="sales with stock" name="salesWithStockname" />
+        </form>
     </body>
 </html>

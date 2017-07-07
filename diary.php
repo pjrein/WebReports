@@ -14,7 +14,7 @@ and open the template in the editor.
         <div id="header">
             <img src="css/milimix.png" alt="milimix" width="50" height="50"><br>
 
-            reports menu
+            diary
         </div>
         <?php
 
@@ -86,9 +86,9 @@ and open the template in the editor.
             $reason = $_POST['reason'];
             echo "reason " . $reason . "<br>";
             $begindatum = $_POST['begindatum'];
-            echo 'begindatum'. $begindatum . "<br>";
+            echo 'begindatum' . $begindatum . "<br>";
             $einddatum = $_POST['einddatum'];
-            echo 'einddatum'. $einddatum . "<br><br>";
+            echo 'einddatum' . $einddatum . "<br><br>";
             ?>
 
             <?php
@@ -119,7 +119,7 @@ products.NAME";
 //products.REFERENCE as productID        
 //  and categories.NAME = 'test stock' order by products.name ";
 // PRODUCTS.NAME LIKE '%chocolaat%';";
-           // echo $sql . "<br>";
+            // echo $sql . "<br>";
 //        echo $sel;
 
 

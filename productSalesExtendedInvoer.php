@@ -13,7 +13,7 @@ and open the template in the editor.
     <body>
         <div id="header">
             <img src="css/milimix.png" alt="milimix" width="50" height="50"><br>
-            reports menu
+            product sales extended
         </div>
         <?php
         // put your code here

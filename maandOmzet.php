@@ -8,7 +8,7 @@
     <body>
         <div id="header">
             <img src="css/milimix.png" alt="milimix" width="50" height="50"><br>
-            reports menu
+            maand omzet
         </div>
         <?php
 
