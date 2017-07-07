@@ -22,7 +22,7 @@ and open the template in the editor.
             <input type="submit" value="salesProfit" name="salesProfitNAME" />
         </form>
         <form name="productSales" action="productSalesExtendedInvoer.php" method="POST">
-            <input type="submit" value="productSales" name="productSalesname" />
+            <input type="submit" value="productSalesExtended" name="productSalesname" />
         </form>
         <form name="maandOmzet" action="maandOmzetInvoer.php" method="POST">
             <input type="submit" value="maandOmzet" name="maandOmzetname" />

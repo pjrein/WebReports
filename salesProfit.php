@@ -60,7 +60,7 @@ and open the template in the editor.
                             SUM(TICKETLINES.UNITS * TICKETLINES.PRICE) - SUM(TICKETLINES.UNITS * PRODUCTS.PRICEBUY) AS PROFITLOSS
                         FROM RECEIPTS, TICKETS, TICKETLINES, PRODUCTS
                         WHERE RECEIPTS.ID = TICKETS.ID AND TICKETS.ID = TICKETLINES.TICKET AND TICKETLINES.PRODUCT = PRODUCTS.ID and
-                        RECEIPTS.DATENEW > '" . $_POST["begindatum"] . "' AND RECEIPTS.DATENEW < '" . $_POST["einddatum"] . "'                       
+                        RECEIPTS.DATENEW > '" . $_POST["begindatum"] . "' AND RECEIPTS.DATENEW < '" . $_POST["einddatum"] . "'                                           
                         GROUP BY PRODUCTS.CODE, PRODUCTS.NAME , TICKETS.TICKETID, RECEIPTS.DATENEW, PRODUCTS.PRICEBUY, PRODUCTS.PRICESELL
                         ORDER BY RECEIPTS.DATENEW ;";
 

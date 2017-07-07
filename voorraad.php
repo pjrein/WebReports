@@ -45,13 +45,12 @@ and open the template in the editor.
 //                    $i++;
 //                }
 //                $stloc = "where ((" . implode(" OR ", $loc) . ") and ";
-               // $reason = $_POST['reason'];
-                
+                // $reason = $_POST['reason'];
 //                 echo "<pre>";
 //            print_r($reason);
 //            echo "<pre>";
-               // echo $reason;
-               $i = 0;
+                // echo $reason;
+                $i = 0;
                 foreach ($_POST['categorie'] as $categorie) {
                     $cat[] = "categories.NAME = '" . $categorie . "'";
                     $i++;
@@ -100,29 +99,29 @@ and open the template in the editor.
                             ?>
                         </select><br><br>
                     </div>
-<!--                    <div class="mid">
-                        selecteer reason: <br><select name="reason" size="12"  >
-                            <?php
-                            print " <option selected value=\" \"></option> ";
+                    <!--                    <div class="mid">
+                                            selecteer reason: <br><select name="reason" size="12"  >
+                    <?php
+                    print " <option selected value=\" \"></option> ";
 //                            while ($row = mysqli_fetch_assoc($resultcat)) {
-                               // echo ("<option value=\"" . $reason["1"] . "\">" . $reason["stock.in.purchase"] . "</option>\n");
-                                echo ("<option value = '1' >stock in purchase </option>\n");
-                                echo ("<option value = '2' >stock in refund </option>\n");
-                                echo ("<option value = '4' >stock in movement </option>\n");
-                                echo ("<option value = '-1' >stock out sale </option>\n");
-                                echo ("<option value = '-2' >stock out refund </option>\n");
-                                echo ("<option value = '-3' >stock out break </option>\n");
-                                echo ("<option value = '-4' >stock out movement </option>\n");
-                                echo ("<option value = '-5' >stock out sample </option>\n");
-                                echo ("<option value = '-6' >stock out free </option>\n");
-                                echo ("<option value = '-7' >stock out used </option>\n");
-                                echo ("<option value = '-8' >stock out subtract </option>\n");
-                                
-                                
-                           // }
-                            ?>
-                        </select><br><br>
-                    </div>-->
+                    // echo ("<option value=\"" . $reason["1"] . "\">" . $reason["stock.in.purchase"] . "</option>\n");
+                    echo ("<option value = '1' >stock in purchase </option>\n");
+                    echo ("<option value = '2' >stock in refund </option>\n");
+                    echo ("<option value = '4' >stock in movement </option>\n");
+                    echo ("<option value = '-1' >stock out sale </option>\n");
+                    echo ("<option value = '-2' >stock out refund </option>\n");
+                    echo ("<option value = '-3' >stock out break </option>\n");
+                    echo ("<option value = '-4' >stock out movement </option>\n");
+                    echo ("<option value = '-5' >stock out sample </option>\n");
+                    echo ("<option value = '-6' >stock out free </option>\n");
+                    echo ("<option value = '-7' >stock out used </option>\n");
+                    echo ("<option value = '-8' >stock out subtract </option>\n");
+
+
+                    // }
+                    ?>
+                                            </select><br><br>
+                                        </div>-->
                     <div class="bottom">
                         <input type="submit" name="submit" value="selectie"/>
                     </div>
@@ -140,7 +139,7 @@ and open the template in the editor.
 
         <?php
         $sel = selectie();
-       // echo $sel;
+        // echo $sel;
 
         $sql = " SELECT
         categories.NAME as cat,
@@ -231,13 +230,13 @@ and open the template in the editor.
                     foreach ($duplicates as $dub) {
                         if ($dub['productID'] == $varProductID[$i]['productID']) {
                             if ($dub['locid'] == '0') {
-                                $varProductID[$i]['mili'] = $dub['units'];
+                                $varProductID[$i]['mili'] = $varProductID[$i]['mili'] + $dub['units'];
                             }
                             if ($dub['locid'] == '2') {
-                                $varProductID[$i]['am'] = $dub['units'];
+                                $varProductID[$i]['am'] = $varProductID[$i]['am'] + $dub['units'];
                             }
                             if ($dub['locid'] == 'bc68d81f-df91-473d-a48f-666bfe130215') {
-                                $varProductID[$i]['mimi'] = $dub['units'];
+                                $varProductID[$i]['mimi'] = $varProductID[$i]['mimi'] + $dub['units'];
                             }
                         }
                     }
@@ -256,9 +255,9 @@ and open the template in the editor.
 
         </table>
 
-        <form name="hoofdmenu" action="voorraadInvoer.php" method="POST">
-            <input type="submit" value="voorraadInvoer" />
-        </form>
+        <!--        <form name="hoofdmenu" action="voorraad.php" method="POST">
+                    <input type="submit" value="voorraadInvoer" />
+                </form>-->
         <form name="hoofdmenu" action="index.php" method="POST">
             <input type="submit" value="hoofdmenu" />
         </form>
