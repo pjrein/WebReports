@@ -21,8 +21,8 @@ and open the template in the editor.
         function my_conn() {
             // echo 'verbinding maken met kassa : ';
             // $dbase = 'mili'; // DATABASE NAME
-            //$dbase = 'chromis2'; // DATABASE NAME
-            $dbase = 'loja';
+            $dbase = 'chromis2'; // DATABASE NAME
+            //$dbase = 'loja';
             $host = 'localhost'; //DATABASE HOST LOCATION/SERVER
             $user = 'root'; //USER NAME
             $pass = 'welkom'; //PASSWORD
@@ -98,6 +98,7 @@ products.NAME As product,
 PRODUCTS.ID as productID,
 stockdiary.DATENEW datum,
 stockdiary.REASON,
+stockcurrent.units as voorraad,
 locations.NAME As loc,
 locations.id as locid,
 stockdiary.UNITS as units,
@@ -106,7 +107,9 @@ From categories
 Inner Join products On products.CATEGORY = categories.ID 
 Inner Join stockdiary On stockdiary.PRODUCT = products.ID 
 Inner Join locations On stockdiary.LOCATION = locations.ID
+inner join stockcurrent on stockcurrent.PRODUCT = products.id
 Where
+stockcurrent.LOCATION = '0' and
 stockdiary.DATENEW > '" . $_POST["begindatum"] . "' AND stockdiary.DATENEW < '" . $_POST["einddatum"] . "' and
 stockdiary.REASON = $reason
 Order By
@@ -133,6 +136,7 @@ products.NAME";
                         <td><strong>catagorie</strong></td>
                         <td><strong>EAN      </strong></td>
                         <td><strong>produkt  </strong></td>
+                        <td><strong>voorraad  </strong></td>
                         <td><strong>mili     </strong></td>
                         <td><strong>am       </strong></td>
                         <td><strong>mimi     </strong></td>
@@ -204,6 +208,7 @@ products.NAME";
                     echo("<tr>\n<td>" . $uniek['cat'] . "</td> ");
                     echo("<td>" . $uniek['EAN'] . "</td> ");
                     echo("<td>" . $uniek['product'] . "</td> ");
+                    echo("<td>" . $uniek['voorraad'] . "</td> ");
                     echo("<td>" . $uniek['mili'] . "</td>");
                     echo("<td>" . $uniek['am'] . "</td>");
                     echo("<td>" . $uniek['mimi'] . "</td>");
