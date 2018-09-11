@@ -71,8 +71,8 @@ and open the template in the editor.
                     </select><br><br>
                 </div>
                 <div class="float">
-                    geef de begindatum JJJJ-MM-DD HH:MM:SS : <input type="text" name="begindatum" value="2017- 00:00:00" /><br>
-                    geef de einddatum JJJJ-MM-DD HH:MM:SS  : <input type="text" name="einddatum" value="2017- 24:00:00" /><br>
+                    geef de begindatum JJJJ-MM-DD HH:MM:SS : <input type="text" name="begindatum" value="2018- 00:00:00" /><br>
+                    geef de einddatum JJJJ-MM-DD HH:MM:SS  : <input type="text" name="einddatum" value="2018- 24:00:00" /><br>
                 </div>
 
 

@@ -20,8 +20,8 @@ and open the template in the editor.
         function my_conn() {
             // echo 'verbinding maken met kassa : ';
             // $dbase = 'mili'; // DATABASE NAME
-            //$dbase = 'chromis2'; // DATABASE NAME
-            $dbase = 'loja';
+            $dbase = 'chromis2'; // DATABASE NAME
+            //$dbase = 'loja';
             $host = 'localhost'; //DATABASE HOST LOCATION/SERVER
             $user = 'root'; //USER NAME
             $pass = 'welkom'; //PASSWORD
