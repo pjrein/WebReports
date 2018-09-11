@@ -27,9 +27,7 @@ include('dbconnect.php');
                 <?php
                 // Retrieve all records and display them
                 $result = mysql_query("SELECT * FROM temperature ORDER BY id ASC");
-
-//            echo '<tbody>';//is niet goed
-                // process every record
+                
                 while ($row = mysql_fetch_array($result)) {
                     echo '<tr>';
                     echo '   <td>' . $row["id"] . '</td>';
@@ -37,7 +35,6 @@ include('dbconnect.php');
                     echo '   <td>' . $row["sensor"] . '</td>';
                     echo '   <td>' . $row["celsius"] . '</td>';
                 }
-//            echo '</tbody>';
                 ?>
             </tbody>
         </table>
