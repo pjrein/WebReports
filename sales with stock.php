@@ -41,8 +41,8 @@ and open the template in the editor.
             <form name="index" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                 <input type="hidden" value="1" name="zendform" />               
                 <div class="left2">
-                    geef de begindatum JJJJ-MM-DD HH:MM:SS : <input type="text" name="begindatum" value="2017- 00:00:00" /><br>
-                    geef de einddatum JJJJ-MM-DD HH:MM:SS  : <input type="text" name="einddatum" value="2017- 24:00:00" /><br>
+                    geef de begindatum JJJJ-MM-DD HH:MM:SS : <input type="text" name="begindatum" value="2018- 00:00:00" /><br>
+                    geef de einddatum JJJJ-MM-DD HH:MM:SS  : <input type="text" name="einddatum" value="2018- 24:00:00" /><br>
                 </div>
                 <div class="mid">
                     number of days : <input type="text" name="numberOfDays" value="1" /><br>                    
