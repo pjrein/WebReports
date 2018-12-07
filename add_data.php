@@ -9,5 +9,5 @@
     mysql_query($SQL);
 
     // Go to the review_data.php (optional)
-   header("Location: review_data.php");
+   header("Location: review_data2.php");
 
