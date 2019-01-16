@@ -11,12 +11,12 @@
 body {background-color: lightgray}
 
 #header {
-    //background-color: lightgray ;
+    /*background-color: lightgray ;*/
     color: blue;
     text-align: center;
-    padding: 5px 5px 5px 5px ;
-   // border-color:  black;
-   // border-style: solid;
+    padding: 5px 5px 5px 5px;
+   /* border-color:  black;
+    border-style: solid;*/
     width: 150px;
     float: right;
 }
