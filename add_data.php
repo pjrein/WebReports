@@ -10,4 +10,4 @@
 
     // Go to the review_data.php (optional)
    header("Location: review_data2.php");
-
+//vanuit mili-11 toegevoegd
