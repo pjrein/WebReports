@@ -7,7 +7,8 @@ and open the template in the editor.
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/mili-style.css">               
+        <link rel="stylesheet" href="css/mili-style.css">     
+        <!--<link rel="stylesheet" href="css/tabel-style.css">-->  
         <title>reports</title>
     </head>
     <body>
@@ -71,8 +72,8 @@ and open the template in the editor.
                     </select><br><br>
                 </div>
                 <div class="float">
-                    geef de begindatum JJJJ-MM-DD HH:MM:SS : <input type="text" name="begindatum" value="2018- 00:00:00" /><br>
-                    geef de einddatum JJJJ-MM-DD HH:MM:SS  : <input type="text" name="einddatum" value="2018- 24:00:00" /><br>
+                    geef de begindatum JJJJ-MM-DD HH:MM:SS : <input type="text" name="begindatum" value="2019 00:00:00" /><br> 
+                    geef de einddatum JJJJ-MM-DD HH:MM:SS  : <input type="text" name="einddatum" value="2019 24:00:00" /><br>
                 </div>
 
 
@@ -85,6 +86,7 @@ and open the template in the editor.
         if (isset($_POST['zendform'])) {
             $reason = $_POST['reason'];
             echo "reason " . $reason . "<br>";
+            if ($reason == -1) {echo 'stock out sale' ."<br>" ;}
             $begindatum = $_POST['begindatum'];
             echo 'begindatum' . $begindatum . "<br>";
             $einddatum = $_POST['einddatum'];
@@ -98,7 +100,7 @@ products.NAME As product,
 PRODUCTS.ID as productID,
 stockdiary.DATENEW datum,
 stockdiary.REASON,
-stockcurrent.units as voorraad,
+stockcurrent.units as magazijn,
 locations.NAME As loc,
 locations.id as locid,
 stockdiary.UNITS as units,
@@ -136,10 +138,10 @@ products.NAME";
                         <td><strong>catagorie</strong></td>
                         <td><strong>EAN      </strong></td>
                         <td><strong>produkt  </strong></td>
-                        <td><strong>voorraad  </strong></td>
-                        <td><strong>mili     </strong></td>
+                        <td><strong>magazijn  </strong></td>
+                        <td><strong>lilina     </strong></td>
                         <td><strong>am       </strong></td>
-                        <td><strong>mimi     </strong></td>
+                        <td><strong>mipi     </strong></td>
                         <td></td>
                     </tr>
                     <?php
@@ -147,9 +149,9 @@ products.NAME";
                     $arResult = array();
                     while ($row = \mysqli_fetch_assoc($result)) {
                         $arResult[$i] = $row;
-                        $arResult[$i]['mili'] = '';
+                        $arResult[$i]['lilina'] = '';
                         $arResult[$i]['am'] = '';
-                        $arResult[$i]['mimi'] = '';
+                        $arResult[$i]['mipi'] = '';
                         $i++;
                     }
 
@@ -165,14 +167,14 @@ products.NAME";
                         if (!in_array($arResult[$j]['productID'], $resultaat)) {
                             // $varProductID[$j] = $arResult[$j]['productID'];
                             $varProductID[$j] = $arResult[$j]; //zijn unieke waarden
-                            if ($varProductID[$j]['locid'] == '0') {
-                                $varProductID[$j]['mili'] = $varProductID[$j]['units'];
+                            if ($varProductID[$j]['locid'] == 'f8f72452-f51c-40c0-a930-b38e47275590') {
+                                $varProductID[$j]['lilina'] = $varProductID[$j]['units'];
                             }
                             if ($varProductID[$j]['locid'] == '2') {
                                 $varProductID[$j]['am'] = $varProductID[$j]['units'];
                             }
                             if ($varProductID[$j]['locid'] == 'bc68d81f-df91-473d-a48f-666bfe130215') {
-                                $varProductID[$j]['mimi'] = $varProductID[$j]['units'];
+                                $varProductID[$j]['mipi'] = $varProductID[$j]['units'];
                             }
                         }
                         if (in_array($arResult[$j]['productID'], $resultaat)) {
@@ -191,14 +193,14 @@ products.NAME";
                 for ($i = 0; $i < count($varProductID); $i++) {
                     foreach ($duplicates as $dub) {
                         if ($dub['productID'] == $varProductID[$i]['productID']) {
-                            if ($dub['locid'] == '0') {
-                                $varProductID[$i]['mili'] = $varProductID[$i]['mili'] + $dub['units'];
+                            if ($dub['locid'] == 'f8f72452-f51c-40c0-a930-b38e47275590') {
+                                $varProductID[$i]['lilina'] = $varProductID[$i]['lilina'] + $dub['units'];
                             }
                             if ($dub['locid'] == '2') {
                                 $varProductID[$i]['am'] = $varProductID[$i]['am'] + $dub['units'];
                             }
                             if ($dub['locid'] == 'bc68d81f-df91-473d-a48f-666bfe130215') {
-                                $varProductID[$i]['mimi'] = $varProductID[$i]['mimi'] + $dub['units'];
+                                $varProductID[$i]['mipi'] = $varProductID[$i]['mipi'] + $dub['units'];
                             }
                         }
                     }
@@ -208,10 +210,10 @@ products.NAME";
                     echo("<tr>\n<td>" . $uniek['cat'] . "</td> ");
                     echo("<td>" . $uniek['EAN'] . "</td> ");
                     echo("<td>" . $uniek['product'] . "</td> ");
-                    echo("<td>" . $uniek['voorraad'] . "</td> ");
-                    echo("<td>" . $uniek['mili'] . "</td>");
+                    echo("<td>" . $uniek['magazijn'] . "</td> ");
+                    echo("<td>" . $uniek['lilina'] . "</td>");
                     echo("<td>" . $uniek['am'] . "</td>");
-                    echo("<td>" . $uniek['mimi'] . "</td>");
+                    echo("<td>" . $uniek['mipi'] . "</td>");
                 }
             }
             ?>
