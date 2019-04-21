@@ -6,7 +6,7 @@
     $SQL = "INSERT INTO orta1.temperature (sensor ,celsius) VALUES ('".$_GET["serial"]."', '".$_GET["temperature"]."')";     
 
     // Execute SQL statement
-    mysql_query($SQL);
+    mysqli_query($dbh, $SQL);
 
     // Go to the review_data.php (optional)
    header("Location: review_data2.php");

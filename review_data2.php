@@ -26,9 +26,9 @@ include('dbconnect.php');
             <tbody>
                 <?php
                 // Retrieve all records and display them
-                $result = mysql_query("SELECT * FROM temperature ORDER BY id ASC");
+                $result = mysqli_query($dbh, "SELECT * FROM temperature ORDER BY id ASC");
                 
-                while ($row = mysql_fetch_array($result)) {
+                    while ($row = mysqli_fetch_array($result)) {
                     echo '<tr>';
                     echo '   <td>' . $row["id"] . '</td>';
                     echo '   <td>' . $row["event"] . '</td>';

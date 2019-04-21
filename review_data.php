@@ -40,13 +40,13 @@
           </tr>
 <?php
     // Retrieve all records and display them
-    $result = mysql_query("SELECT * FROM temperature ORDER BY id ASC");
+    $result = mysqli_query($dbh, "SELECT * FROM temperature ORDER BY id ASC");
 
     // Used for row color toggle
     $oddrow = true;
 
     // process every record
-    while( $row = mysql_fetch_array($result) )
+    while( $row = mysqli_fetch_array($result) )
     {
         if ($oddrow) 
         { 
