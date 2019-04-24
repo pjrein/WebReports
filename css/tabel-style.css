@@ -23,14 +23,15 @@ body {background-color: lightgray}
 
 div.container {
     width : 80%;    
-    border: solid black 1px;
+    /*border: solid black 1px;*/
     margin: 0px;
+    float: left;
 }
 
 div.left {
-    float: left;
+    float: bottom;
     width : 150px;
-    border: solid black 1px;
+    /*border: solid black 1px;*/
     margin: 0px;
 }
     
@@ -77,7 +78,7 @@ div.left {
     display: block;
     overflow: auto;
     width: 100%;
-    height: 400px;}
+    height: 550px;}
 .fixed_headers tr:nth-child(even) {
     background-color: #DDD;
 }

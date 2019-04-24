@@ -13,7 +13,6 @@ and open the template in the editor.
     <body>
         <div id="header">
             <img src="css/milimix.png" alt="milimix" width="50" height="50"><br>
-
             diary_1
         </div>
         <?php
@@ -70,9 +69,9 @@ and open the template in the editor.
                         ?>
                     </select><br><br>
                 </div>
-                <div class="mid">
-                    geef de begindatum JJJJ-MM-DD HH:MM:SS : <input type="text" name="begindatum" value="2018- 00:00:00" /><br>
-                    geef de einddatum JJJJ-MM-DD HH:MM:SS  : <input type="text" name="einddatum" value="2018- 24:00:00" /><br>
+                <div class="bottom">
+                    geef de begindatum JJJJ-MM-DD HH:MM:SS : <input type="text" name="begindatum" value="2019- 00:00:00" /><br>
+                    geef de einddatum JJJJ-MM-DD HH:MM:SS  : <input type="text" name="einddatum" value="2019- 24:00:00" /><br>
                 </div>
 
 
@@ -98,7 +97,7 @@ products.NAME As product,
 PRODUCTS.ID as productID,
 stockdiary.DATENEW datum,
 stockdiary.REASON,
-stockcurrent.units as voorraad,
+stockcurrent.units as magazijn,
 locations.NAME As loc,
 locations.id as locid,
 stockdiary.UNITS as units,
@@ -137,10 +136,10 @@ products.NAME";
                             <th><strong>catagorie</strong></th>
                             <th><strong>EAN      </strong></th>
                             <th><strong>produkt  </strong></th>
-                            <th><strong>voorraad  </strong></th>
-                            <th><strong>mili     </strong></th>
+                            <th><strong>magazijn  </strong></th>
+                            <th><strong>lilina     </strong></th>
                             <th><strong>am       </strong></th>
-                            <th><strong>mimi     </strong></th>
+                            <th><strong>mipi     </strong></th>
                             <th></th>
                         </tr>
                     </thead>
@@ -150,9 +149,9 @@ products.NAME";
                     $arResult = array();
                     while ($row = \mysqli_fetch_assoc($result)) {
                         $arResult[$i] = $row;
-                        $arResult[$i]['mili'] = '';
+                        $arResult[$i]['lilina'] = '';
                         $arResult[$i]['am'] = '';
-                        $arResult[$i]['mimi'] = '';
+                        $arResult[$i]['mipi'] = '';
                         $i++;
                     }
 
@@ -168,14 +167,14 @@ products.NAME";
                         if (!in_array($arResult[$j]['productID'], $resultaat)) {
                             // $varProductID[$j] = $arResult[$j]['productID'];
                             $varProductID[$j] = $arResult[$j]; //zijn unieke waarden
-                            if ($varProductID[$j]['locid'] == '0') {
-                                $varProductID[$j]['mili'] = $varProductID[$j]['units'];
+                            if ($varProductID[$j]['locid'] == 'f8f72452-f51c-40c0-a930-b38e47275590') {
+                                $varProductID[$j]['lilina'] = $varProductID[$j]['units'];
                             }
                             if ($varProductID[$j]['locid'] == '2') {
                                 $varProductID[$j]['am'] = $varProductID[$j]['units'];
                             }
                             if ($varProductID[$j]['locid'] == 'bc68d81f-df91-473d-a48f-666bfe130215') {
-                                $varProductID[$j]['mimi'] = $varProductID[$j]['units'];
+                                $varProductID[$j]['mipi'] = $varProductID[$j]['units'];
                             }
                         }
                         if (in_array($arResult[$j]['productID'], $resultaat)) {
@@ -194,14 +193,14 @@ products.NAME";
                 for ($i = 0; $i < count($varProductID); $i++) {
                     foreach ($duplicates as $dub) {
                         if ($dub['productID'] == $varProductID[$i]['productID']) {
-                            if ($dub['locid'] == '0') {
-                                $varProductID[$i]['mili'] = $varProductID[$i]['mili'] + $dub['units'];
+                            if ($dub['locid'] == 'f8f72452-f51c-40c0-a930-b38e47275590') {
+                                $varProductID[$i]['lilina'] = $varProductID[$i]['lilina'] + $dub['units'];
                             }
                             if ($dub['locid'] == '2') {
                                 $varProductID[$i]['am'] = $varProductID[$i]['am'] + $dub['units'];
                             }
                             if ($dub['locid'] == 'bc68d81f-df91-473d-a48f-666bfe130215') {
-                                $varProductID[$i]['mimi'] = $varProductID[$i]['mimi'] + $dub['units'];
+                                $varProductID[$i]['mipi'] = $varProductID[$i]['mipi'] + $dub['units'];
                             }
                         }
                     }
@@ -211,10 +210,10 @@ products.NAME";
                     echo("<tr>\n<td>" . $uniek['cat'] . "</td> ");
                     echo("<td>" . $uniek['EAN'] . "</td> ");
                     echo("<td>" . $uniek['product'] . "</td> ");
-                    echo("<td>" . $uniek['voorraad'] . "</td> ");
-                    echo("<td>" . $uniek['mili'] . "</td>");
+                    echo("<td>" . $uniek['magazijn'] . "</td> ");
+                    echo("<td>" . $uniek['lilina'] . "</td>");
                     echo("<td>" . $uniek['am'] . "</td>");
-                    echo("<td>" . $uniek['mimi'] . "</td>");
+                    echo("<td>" . $uniek['mipi'] . "</td>");
                 }
             }
             ?>
@@ -223,9 +222,10 @@ products.NAME";
 
 
 
-
+<div class="container">
         <form name="hoofdmenu" action="index.php" method="POST">
             <input type="submit" value="hoofdmenu" />
         </form>
+</div>
     </body>
 </html>

@@ -30,7 +30,7 @@ and open the template in the editor.
         <form name="voorraad" action="voorraad.php" method="POST">
             <input type="submit" value="voorraad" name="voorraadname" />
         </form>
-        <form name="diary" action="diary.php" method="POST">
+        <form name="diary" action="diary_1.php" method="POST">
             <input type="submit" value="diary" name="diarynakename" />
         </form>
         <form name="salesWithStock" action="sales with stock.php" method="POST">
