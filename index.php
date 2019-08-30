@@ -7,17 +7,19 @@ and open the template in the editor.
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/mili-style.css">               
+        <!--        <link rel="stylesheet" href="css/mili-style.css">               -->
+        <link rel="stylesheet" href="css/tabel-style.css"> 
         <title>reports</title>
     </head>
     <body>
         <div id="header">
             <img src="css/milimix.png" alt="milimix" width="50" height="50"><br>
-            reports menu
+            reports menu     
         </div>
-        <?php
-        // echo 'hallo keuzemenu';
-        ?>
+        <div class="container">
+            Keuze menu: 
+        </div>
+        <br><br>
         <form name = "salesProfit" action = "salesProfitInvoer.php" method = "POST">                 
             <input type="submit" value="salesProfit" name="salesProfitNAME" />
         </form>
@@ -27,11 +29,11 @@ and open the template in the editor.
         <form name="maandOmzet" action="maandOmzetInvoer.php" method="POST">
             <input type="submit" value="maandOmzet" name="maandOmzetname" />
         </form>
-        <form name="voorraad" action="voorraad.php" method="POST">
-            <input type="submit" value="voorraad" name="voorraadname" />
+        <form name="voorraad" action="stock.php" method="POST">
+            <input type="submit" value="stock" name="voorraadname" />
         </form>
-        <form name="diary" action="diary_1.php" method="POST">
-            <input type="submit" value="diary" name="diarynakename" />
+        <form name="diary" action="diary.php" method="POST">
+            <input type="submit" value="diary" name="diaryname" />
         </form>
         <form name="salesWithStock" action="sales with stock.php" method="POST">
             <input type="submit" value="sales with stock" name="salesWithStockname" />

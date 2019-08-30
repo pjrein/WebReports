@@ -7,13 +7,15 @@ and open the template in the editor.
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/tabel-style.css">               
+        <link rel="stylesheet" href="css/mili-style.css">     
+        <!--<link rel="stylesheet" href="css/tabel-style.css">-->  
         <title>reports</title>
     </head>
     <body>
         <div id="header">
             <img src="css/milimix.png" alt="milimix" width="50" height="50"><br>
-            diary_1
+
+            diary
         </div>
         <?php
 
@@ -69,9 +71,9 @@ and open the template in the editor.
                         ?>
                     </select><br><br>
                 </div>
-                <div class="bottom">
-                    geef de begindatum JJJJ-MM-DD HH:MM:SS : <input type="text" name="begindatum" value="2019- 00:00:00" /><br>
-                    geef de einddatum JJJJ-MM-DD HH:MM:SS  : <input type="text" name="einddatum" value="2019- 24:00:00" /><br>
+                <div class="float">
+                    geef de begindatum JJJJ-MM-DD HH:MM:SS : <input type="text" name="begindatum" value="2019 00:00:00" /><br> 
+                    geef de einddatum JJJJ-MM-DD HH:MM:SS  : <input type="text" name="einddatum" value="2019 24:00:00" /><br>
                 </div>
 
 
@@ -84,6 +86,7 @@ and open the template in the editor.
         if (isset($_POST['zendform'])) {
             $reason = $_POST['reason'];
             echo "reason " . $reason . "<br>";
+            if ($reason == -1) {echo 'stock out sale' ."<br>" ;}
             $begindatum = $_POST['begindatum'];
             echo 'begindatum' . $begindatum . "<br>";
             $einddatum = $_POST['einddatum'];
@@ -130,20 +133,17 @@ products.NAME";
 
             if ($result) {
                 ?>
-                <table class="fixed_headers">
-                    <thead>
-                        <tr>
-                            <th><strong>catagorie</strong></th>
-                            <th><strong>EAN      </strong></th>
-                            <th><strong>produkt  </strong></th>
-                            <th><strong>magazijn  </strong></th>
-                            <th><strong>lilina     </strong></th>
-                            <th><strong>am       </strong></th>
-                            <th><strong>mipi     </strong></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <table>
+                    <tr>
+                        <td><strong>catagorie</strong></td>
+                        <td><strong>EAN      </strong></td>
+                        <td><strong>produkt  </strong></td>
+                        <td><strong>magazijn  </strong></td>
+                        <td><strong>lilina     </strong></td>
+                        <td><strong>am       </strong></td>
+                        <td><strong>mipi     </strong></td>
+                        <td></td>
+                    </tr>
                     <?php
                     $i = 0;
                     $arResult = array();
@@ -217,15 +217,13 @@ products.NAME";
                 }
             }
             ?>
-                    </tbody>
         </table>
 
 
 
-<div class="container">
+
         <form name="hoofdmenu" action="index.php" method="POST">
             <input type="submit" value="hoofdmenu" />
         </form>
-</div>
     </body>
 </html>
